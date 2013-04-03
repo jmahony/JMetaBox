@@ -1,0 +1,40 @@
+/* Namespace the styles so we don't effect anything else */
+.rep-meta-box {
+  @import "forms";
+
+  /* Fix text boxes height */
+  input {
+    &[type="text"],
+    &[type="password"],
+    &[type="datetime"],
+    &[type="datetime-local"],
+    &[type="date"],
+    &[type="month"],
+    &[type="time"],
+    &[type="week"],
+    &[type="number"],
+    &[type="email"],
+    &[type="url"],
+    &[type="search"],
+    &[type="tel"],
+    &[type="color"] {
+      min-height: 28px !important;
+    }
+  }
+  .checkbox {
+    background: none;
+  }
+  .color-wheel-container {
+    display: none;
+    position: absolute;
+    background-color: white;
+  }
+}
+
+@import "jquery_ui";
+
+.rep-field-container {
+  border-bottom: 1px solid black;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
