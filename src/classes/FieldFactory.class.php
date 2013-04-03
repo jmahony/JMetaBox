@@ -1,4 +1,4 @@
-<?php namespace Rep\MetaBox;
+<?php namespace JMetaBox;
 
 /**
  * FieldFactory
@@ -43,7 +43,7 @@ class FieldFactory {
     $class = self::$loader->load($args['type']);
 
     /* Force anyone using MetaBox to adhere to the FieldInterface */
-    if (is_subclass_of($class, '\Rep\MetaBox\FieldInterface')) {
+    if (is_subclass_of($class, '\JMetaBox\FieldInterface')) {
       return new $class($args);
     }
 

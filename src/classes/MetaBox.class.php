@@ -1,4 +1,4 @@
-<?php namespace Rep;
+<?php
 
 /**
  * MetaBox
@@ -8,7 +8,7 @@
  * TODO: Add responsibilities
  * @author Josh Mahony (jalmahony@gmail.com)
  **/
-class MetaBox extends \Rep\Renderer {
+class JMetaBox extends \JMetaBox\Renderer {
 
   /**
    * postTypes
@@ -128,7 +128,7 @@ class MetaBox extends \Rep\Renderer {
 
     $this->desc = $args['desc'];
 
-    $this->fieldFactory = new \Rep\metabox\FieldFactory();
+    $this->fieldFactory = new \JMetaBox\FieldFactory();
 
     $this->addFields($args['fields']);
 

@@ -1,4 +1,4 @@
-<?php namespace Rep\Metabox;
+<?php namespace JMetaBox;
 
 require_once('classes/fields/FieldInterface.interface.php');
 

@@ -1,4 +1,4 @@
-<?php namespace Rep\MetaBox;
+<?php namespace JMetaBox;
 
 /**
  * FieldLoader
@@ -41,9 +41,9 @@ class FieldLoader {
 
     /* Any classes loaded from the fields directory should
      * be in the MetaBox\Fields namespace. So lets check that namespace */
-    if (class_exists('\\Rep\\MetaBox\\' . $className)) {
+    if (class_exists('\\JMetaBox\\' . $className)) {
       self::success($className);
-      return '\\Rep\\MetaBox\\' . $className;
+      return '\\JMetaBox\\' . $className;
     }
 
     throw new FieldLoaderException('Could not find ' . $className . ' at ' . $path);

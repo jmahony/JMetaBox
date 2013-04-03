@@ -1,9 +1,9 @@
-<?php namespace Rep\MetaBox;
+<?php namespace JMetaBox;
 
 /**
 *
 */
-class ConditionGenerator extends \Rep\Renderer {
+class ConditionGenerator extends Renderer {
 
   private $cond = array();
   private $field;
@@ -71,7 +71,7 @@ class ConditionGenerator extends \Rep\Renderer {
   //TODO: This needs some attention!
   private function op($i = null) {
 
-    if ((!isset($this->cond[$i+1]['op']) || !$this->cond[$i+1]['op']) && $i < count($this->cond) - 1) {
+    if ((!isset($this->cond[$i+1]['op'])) && $i < count($this->cond) - 1) {
       throw new \Exception('op must be set');
     } else {
       if (isset($this->cond[$i+1]['op'])) {

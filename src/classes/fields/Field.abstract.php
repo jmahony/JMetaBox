@@ -1,4 +1,4 @@
-<?php namespace Rep\MetaBox;
+<?php namespace JMetaBox;
 
 /**
  * Field
@@ -13,7 +13,7 @@
  * @author Josh Mahony (jalmahony@gmail.com)
  * @abstract
  **/
-abstract class Field extends \Rep\Renderer implements FieldInterface {
+abstract class Field extends Renderer implements FieldInterface {
 
   /**
    * id
