@@ -68,19 +68,21 @@ class ConditionGenerator extends \Rep\Renderer {
     $this->output .= '});';
 
   }
-
+  //TODO: This needs some attention!
   private function op($i = null) {
 
     if ((!isset($this->cond[$i+1]['op']) || !$this->cond[$i+1]['op']) && $i < count($this->cond) - 1) {
       throw new \Exception('op must be set');
     } else {
-      switch ($this->cond[$i+1]['op']) {
-        case 'and':
-          $this->output .= ' && ';
-          break;
-        case 'or':
-          $this->output .= ' || ';
-          break;
+      if (isset($this->cond[$i+1]['op'])) {
+        switch ($this->cond[$i+1]['op']) {
+          case 'and':
+            $this->output .= ' && ';
+            break;
+          case 'or':
+            $this->output .= ' || ';
+            break;
+        }
       }
     }
 

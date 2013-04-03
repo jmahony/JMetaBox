@@ -242,7 +242,7 @@ class MetaBox extends \Rep\Renderer {
 
     wp_enqueue_style(
       'rep-meta-style',
-      get_stylesheet_directory_uri() . '/metabox/build/assets/css/rep-meta.css'
+      LIBRARY_URL . '/JMetaBox/build/assets/css/rep-meta.css'
     );
 
   }

@@ -182,7 +182,7 @@ abstract class Field extends \Rep\Renderer implements FieldInterface {
    **/
   private function getDirectory() {
 
-    return get_stylesheet_directory_uri() . '/metabox/build/classes/fields/' . $this->getFieldType();
+    return LIBRARY_URL . '/JMetaBox/build/classes/fields/' . $this->getFieldType();
 
   }
 
