@@ -10,7 +10,7 @@ class Text extends Field {
     $cg = (string) '';
 
     if (isset($this->args['cond'])) {
-      $cg = new \Rep\MetaBox\ConditionGenerator($this->args['cond'], &$this);
+      $cg = new \JMetaBox\ConditionGenerator($this->args['cond'], &$this);
       $cg->render();
     }
 
