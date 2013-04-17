@@ -99,7 +99,7 @@ class JMetaBox extends \JMetaBox\Renderer {
    * @param string $p (priority)
    * @return void
    **/
-  public function __construct($args = array()) {
+  public function __construct(array $args = array()) {
 
     if (!isset($args['id']) && is_numeric(substr($args['id'], 0, 1)))
       throw new MetaBoxException('ID is required and cannot start with int');
@@ -147,7 +147,9 @@ class JMetaBox extends \JMetaBox\Renderer {
 
     $this->output .= '<div class="rep-meta-box">';
 
-    $this->output .= sprintf('<h2>%s</h2>', $this->desc);
+    if ($this->desc) {
+      $this->output .= sprintf('<p class="rep-meta-desc">%s</p>', $this->desc);
+    }
 
     $this->output .= wp_nonce_field('rep_meta_save', $this->nonce, true, false);
 
