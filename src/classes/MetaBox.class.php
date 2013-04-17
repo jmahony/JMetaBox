@@ -282,6 +282,9 @@ class JMetaBox extends \JMetaBox\Renderer {
    **/
   private function userIsAuthorised($postId = null) {
 
+    // Must be a better way
+    if (isset($_POST['post_type'])) return false;
+
     if (in_array($_POST['post_type'], $this->postTypes)) {
       if (!current_user_can('edit_page', $postId)) {
         return false;
