@@ -106,7 +106,7 @@ abstract class Field extends Renderer implements FieldInterface {
    **/
   public function save($postId = null, \WP_Post $post = null) {
 
-    update_post_meta($postId, $this->id, sanitize_text_field($_POST[$this->id]));
+    update_post_meta($postId, $this->id, $_POST[$this->id]);
 
   }
 
@@ -178,11 +178,12 @@ abstract class Field extends Renderer implements FieldInterface {
    * getDirectory
    * Get the directory, this is used when including any scripts or styles
    * TODO: Stop this depending on wordpress's get_stylesheet_directory_uri
+   * TODO: this isn't going to work with custom fields
    * @return string
    **/
   private function getDirectory() {
 
-    return LIBRARY_URL . '/JMetaBox/build/classes/fields/' . $this->getFieldType();
+    return LIBRARY_URL . '/classes/fields/' . $this->getFieldType();
 
   }
 
@@ -193,7 +194,7 @@ abstract class Field extends Renderer implements FieldInterface {
    * @param MetaBox &$mb
    * @return void
    **/
-  public function register(\Rep\MetaBox &$mb) {
+  public function register(\JMetaBox &$mb) {
 
     $this->metaBox = $mb;
 
