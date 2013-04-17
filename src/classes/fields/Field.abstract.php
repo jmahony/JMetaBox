@@ -86,8 +86,9 @@ abstract class Field extends Renderer implements FieldInterface {
     $this->label = (isset($args['label'])) ? $args['label'] : null;
 
     // Fetch the post meta, we need this to display in the field when rendering
-    $this->value = get_post_meta($_GET['post'], $this->id, true);
-
+    if (isset($_GET['post'])) {
+      $this->value = get_post_meta($_GET['post'], $this->id, true);
+    }
     // Populate directory attribute
     $this->directory = $this->getDirectory();
 
