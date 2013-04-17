@@ -1,4 +1,4 @@
-<?php namespace Rep\MetaBox;
+<?php namespace JMetaBox;
 
 /**
 *
@@ -28,8 +28,8 @@ class Color extends Field {
   public function enqueueScripts() {
 
     wp_register_script(
-      'rep_color',
-      $this->directory . '/js/rep_color.init.min.js',
+      'jmetacolor',
+      $this->directory . '/js/jmetacolor.init.min.js',
       array(
         'jquery',
         'farbtastic'
@@ -38,7 +38,7 @@ class Color extends Field {
       true
     );
 
-    wp_enqueue_script('rep_color');
+    wp_enqueue_script('jmetacolor');
 
   }
 

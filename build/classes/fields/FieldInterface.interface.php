@@ -1,4 +1,4 @@
-<?php namespace Rep\MetaBox;
+<?php namespace JMetaBox;
 
 /**
  * FieldInterface

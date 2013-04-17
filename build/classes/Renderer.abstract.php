@@ -1,4 +1,4 @@
-<?php namespace Rep;
+<?php namespace JMetaBox;
 
 /**
 *  TODO: Extend off of mustache

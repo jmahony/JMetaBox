@@ -41,8 +41,8 @@ module.exports = function(grunt) {
       },
       build: {
         files: {
-          'build/classes/fields/datepicker/js/rep_datepicker.init.min.js': ['src/classes/fields/datepicker/js/rep_datepicker.init.js'],
-          'build/classes/fields/color/js/rep_color.init.min.js': ['src/classes/fields/color/js/rep_color.init.js']
+          'build/classes/fields/datepicker/js/jmetadatepicker.init.min.js': ['src/classes/fields/datepicker/js/jmetadatepicker.init.js'],
+          'build/classes/fields/color/js/jmetacolor.init.min.js': ['src/classes/fields/color/js/jmetacolor.init.js']
         }
       }
     },

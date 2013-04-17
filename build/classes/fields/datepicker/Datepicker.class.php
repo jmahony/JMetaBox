@@ -1,4 +1,4 @@
-<?php namespace Rep\MetaBox;
+<?php namespace JMetaBox;
 
 /**
 *
@@ -28,7 +28,7 @@ class Datepicker extends Field {
 
     wp_register_script(
       'rep_datepicker',
-      $this->directory . '/js/rep_datepicker.init.min.js',
+      $this->directory . '/js/jmetadatepicker.init.min.js',
       array(
         'jquery-ui-datepicker'
       ),
