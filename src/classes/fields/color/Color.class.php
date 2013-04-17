@@ -28,11 +28,21 @@ class Color extends Field {
   public function enqueueScripts() {
 
     wp_register_script(
+      'farbtastic2',
+      LIBRARY_URL . '/JMetaBox/build/assets/js/farbtastic.js',
+      array(
+        'jquery'
+      ),
+      '2.0',
+      true
+    );
+
+    wp_register_script(
       'jmetacolor',
       $this->directory . '/js/jmetacolor.init.min.js',
       array(
         'jquery',
-        'farbtastic'
+        'farbtastic2'
       ),
       '0.1',
       true
