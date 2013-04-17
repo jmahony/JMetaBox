@@ -40,7 +40,8 @@ class FieldLoader {
     $this->loadFieldFile($className);
 
     /* Any classes loaded from the fields directory should
-     * be in the MetaBox\Fields namespace. So lets check that namespace */
+     * be in the J
+    MetaBox namespace. So lets check that namespace */
     if (class_exists('\\JMetaBox\\' . $className)) {
       self::success($className);
       return '\\JMetaBox\\' . $className;

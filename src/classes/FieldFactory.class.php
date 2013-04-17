@@ -26,7 +26,7 @@ class FieldFactory {
   public function __construct() {
 
     if (!self::$loader) {
-      self::$loader = new \Rep\MetaBox\FieldLoader();
+      self::$loader = new FieldLoader();
     }
   }
 
@@ -43,11 +43,11 @@ class FieldFactory {
     $class = self::$loader->load($args['type']);
 
     /* Force anyone using MetaBox to adhere to the FieldInterface */
-    if (is_subclass_of($class, '\JMetaBox\FieldInterface')) {
+    if (is_subclass_of($class, '\\JMetaBox\\FieldInterface')) {
       return new $class($args);
     }
 
-    throw new FieldFactoryException($class . ' must extend off of Field or implement \Rep\MetaBox\FieldInterface');
+    throw new FieldFactoryException($class . ' must extend off of Field or implement \JMetaBox\FieldInterface');
 
   }
 
