@@ -1,5 +1,17 @@
 <?php namespace JMetaBox;
 
+if (!defined('LIBRARY_URL')) {
+
+  define('LIBRARY_URL', '/JMetaBox/build');
+
+}
+
+if (!defined('ASSETS_URL')) {
+
+  define('ASSETS_URL', LIBRARY_URL . '/assets');
+
+}
+
 require_once('classes/fields/FieldInterface.interface.php');
 
 require_once('classes/Renderer.abstract.php');
