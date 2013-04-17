@@ -11,7 +11,8 @@ module.exports = function(grunt) {
         files: [
           {src: ['src/init.php'], dest: 'build/init.php'},
           {expand: true, cwd: 'src/classes/', src: ['**'], dest: "build/classes"},
-          {expand: true, cwd: 'src/assets/img', src: ['**'], dest: "build/assets/img"}
+          {expand: true, cwd: 'src/assets/img', src: ['**'], dest: "build/assets/img"},
+          {expand: true, cwd: 'src/assets/js', src: ['**'], dest: "build/assets/js"}
         ]
       }
     },
