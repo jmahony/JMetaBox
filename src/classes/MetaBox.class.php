@@ -157,8 +157,6 @@ class JMetaBox extends \JMetaBox\Renderer {
 
     foreach ($this->fields as $field) {
 
-      $field->render();
-
       $this->output .= $field;
 
     }
