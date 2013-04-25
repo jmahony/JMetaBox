@@ -51,7 +51,7 @@ class Checkbox extends Field {
    **/
   public function save($postId = null, \WP_Post $post = null, $value = null) {
 
-    parent::save($postId, $post, empty($_POST[$this->id]) ? '' : $this->args['value']);
+    parent::save($postId, $post, Input::get($this->id, $this->args['value']));
 
   }
 

@@ -19,6 +19,7 @@ if (!defined('ASSETS_URL')) {
 }
 
 require_once('classes/fields/FieldInterface.interface.php');
+require_once('classes/Input.class.php');
 
 require_once('classes/Renderer.abstract.php');
 require_once('classes/ConditionGenerator.class.php');
