@@ -1,8 +1,14 @@
 <?php namespace JMetaBox;
 
+if (!defined('THEME_URL')) {
+
+  define('THEME_URL', get_stylesheet_directory_uri());
+
+}
+
 if (!defined('LIBRARY_URL')) {
 
-  define('LIBRARY_URL', '/JMetaBox/build');
+  define('LIBRARY_URL', THEME_URL . '/JMetaBox/build');
 
 }
 
