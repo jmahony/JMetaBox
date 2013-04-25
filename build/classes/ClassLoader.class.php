@@ -8,7 +8,7 @@
  * Loading class files
  * @author Josh Mahony (jalmahony@gmail.com)
  **/
-class FieldLoader {
+class ClassLoader {
 
   /**
    * loaded
@@ -17,6 +17,20 @@ class FieldLoader {
    * @var array
    **/
   private static $loaded = array();
+
+  /**
+   * dir
+   * Directory to look for classes
+   *
+   * @var string
+   **/
+  private $dir;
+
+  public function __construct($dir = null) {
+
+    $this->dir = $dir;
+
+  }
 
   /**
    * load
@@ -37,17 +51,16 @@ class FieldLoader {
       return '\\' . ucwords($className);
     }
 
-    $this->loadFieldFile($className);
+    $this->loadFile($className);
 
-    /* Any classes loaded from the fields directory should
-     * be in the J
-    MetaBox namespace. So lets check that namespace */
+    /* Any classes loaded should
+     * be in the JMetaBox namespace. So lets check that namespace */
     if (class_exists('\\JMetaBox\\' . $className)) {
       self::success($className);
       return '\\JMetaBox\\' . $className;
     }
 
-    throw new FieldLoaderException('Could not find ' . $className . ' at ' . $path);
+    throw new FieldLoaderException('Could not find ' . $className . ' in ' . $this->dir);
 
   }
 
@@ -58,9 +71,9 @@ class FieldLoader {
    * @param string $className
    * @return bool
    **/
-  private function loadFieldFile($className = null) {
+  private function loadFile($className = null) {
 
-    $path = __DIR__ . '/fields/' . strtolower($className) . '/' . $className . '.class.php';
+    $path = __DIR__ . '/' . $this->dir . '/' . strtolower(str_replace('Sanitiser', '', $className)) . '/' . $className . '.class.php';
 
     if (file_exists($path) && !self::isLoaded($path)) {
       require_once($path);

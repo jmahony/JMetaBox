@@ -64,6 +64,14 @@ abstract class Field extends Renderer implements FieldInterface {
   private $metaBox;
 
   /**
+   * sanitiserType
+   * Which sanitiser to use
+   *
+   * @var sanitiseType
+   **/
+  private $sanitiserType;
+
+  /**
    * __construct
    * id offset is required
    * TODO: Clean this up a bit!
@@ -92,6 +100,8 @@ abstract class Field extends Renderer implements FieldInterface {
     // Populate directory attribute
     $this->directory = $this->getDirectory();
 
+    $this->sanitiserType = isset($args['sanitiser']) ? $args['sanitiser'] : null;
+
     $this->addActions();
 
   }
@@ -105,13 +115,11 @@ abstract class Field extends Renderer implements FieldInterface {
    * @param WP_Post $post
    * @return void
    **/
-  public function save($postId = null, \WP_Post $post = null, $value = null) {
+  public function save($postId = null, \WP_Post $post = null) {
 
     if (in_array($post->post_type, $this->metaBox->getPostTypes())) {
 
-      $value = Input::get($this->id, $value);
-
-      update_post_meta($postId, $this->id, $value);
+      update_post_meta($postId, $this->id, $this->sanitise(Input::post($this->id)));
 
     }
 
@@ -241,6 +249,24 @@ abstract class Field extends Renderer implements FieldInterface {
    * @return string
    **/
   public function ifCondition($i = null, $cond = array()) {}
+
+  /**
+   * sanitise
+   * Sanitise the input
+   *
+   * @param mixed $v
+   * @return mixed
+   **/
+  public function sanitise($v) {
+
+    if ($this->sanitiserType) {
+      $sf = new SanitiserFactory();
+      return $sf->make($this->args)->clean($v);
+    }
+
+    return $v;
+
+  }
 
 }
 

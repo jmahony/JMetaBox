@@ -7,15 +7,7 @@
  *
  * @author Josh Mahony (jalmahony@gmail.com)
  **/
-class FieldFactory {
-
-  /**
-   * loader
-   * Keep a reference to the field loader
-   *
-   * @var FieldLoader
-   **/
-  private static $loader;
+class FieldFactory extends Factory {
 
   /**
    * __construct
@@ -25,9 +17,8 @@ class FieldFactory {
    **/
   public function __construct() {
 
-    if (!self::$loader) {
-      self::$loader = new FieldLoader();
-    }
+    parent::__construct('fields');
+
   }
 
   /**
@@ -40,7 +31,7 @@ class FieldFactory {
    **/
   public function make($args = array()) {
 
-    $class = self::$loader->load($args['type']);
+    $class = $this->loader->load($args['type']);
 
     /* Force anyone using MetaBox to adhere to the FieldInterface */
     if (is_subclass_of($class, '\\JMetaBox\\FieldInterface')) {
@@ -52,5 +43,3 @@ class FieldFactory {
   }
 
 }
-
-class FieldFactoryException extends \Exception {}
