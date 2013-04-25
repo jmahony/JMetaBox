@@ -10,7 +10,7 @@ class Input {
 
   public static function get($k, $default = null) {
 
-    return array_key_exists($k, $_GET) ? $_GET[$k] : $default;
+    return self::getHas($k) ? $_GET[$k] : $default;
 
   }
 
@@ -22,11 +22,11 @@ class Input {
 
   public static function post($k, $default = null) {
 
-    return array_key_exists($k, $_POST) ? $_POST[$k] : $default;
+    return self::postHas($k) ? $_POST[$k] : $default;
 
   }
 
-  public static function getPost($k) {
+  public static function postHas($k) {
 
     return array_key_exists($k, $_POST);
 
