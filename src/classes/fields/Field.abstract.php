@@ -105,9 +105,15 @@ abstract class Field extends Renderer implements FieldInterface {
    * @param WP_Post $post
    * @return void
    **/
-  public function save($postId = null, \WP_Post $post = null) {
+  public function save($postId = null, \WP_Post $post = null, $value = null) {
 
-    update_post_meta($postId, $this->id, $_POST[$this->id]);
+    if (in_array($post->post_type, $this->metaBox->getPostTypes())) {
+
+      $value = isset($_POST[$this->id]) ? $_POST[$this->id] : $value;
+
+      update_post_meta($postId, $this->id, $value);
+
+    }
 
   }
 

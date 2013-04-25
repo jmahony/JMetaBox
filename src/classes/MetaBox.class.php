@@ -73,7 +73,7 @@ class JMetaBox extends \JMetaBox\Renderer {
    *
    * @var string
    **/
-  private $nonce = 'rep_meta_boxes_nonce';
+  private $nonce = 'jmetaboxes_nonce';
 
   /**
    * fieldFactory
@@ -145,13 +145,13 @@ class JMetaBox extends \JMetaBox\Renderer {
    **/
   public function render() {
 
-    $this->output .= '<div class="rep-meta-box">';
+    $this->output .= '<div class="jmetabox">';
 
     if ($this->desc) {
-      $this->output .= sprintf('<p class="rep-meta-desc">%s</p>', $this->desc);
+      $this->output .= sprintf('<p class="jmeta-desc">%s</p>', $this->desc);
     }
 
-    $this->output .= wp_nonce_field('rep_meta_save', $this->nonce, true, false);
+    $this->output .= wp_nonce_field('jmeta_save', $this->nonce, true, false);
 
     $this->output .= '<div class="form-horizontal">';
 
@@ -241,8 +241,8 @@ class JMetaBox extends \JMetaBox\Renderer {
   public function enqueueStyles() {
 
     wp_enqueue_style(
-      'rep-meta-style',
-      LIBRARY_URL . '/JMetaBox/build/assets/css/rep-meta.css'
+      'jmetabox-style',
+      LIBRARY_URL . '/assets/css/jmeta.css'
     );
 
   }
@@ -306,7 +306,7 @@ class JMetaBox extends \JMetaBox\Renderer {
   private function verifyNonce() {
 
     return (isset($_POST[$this->nonce] ) &&
-      wp_verify_nonce($_POST[$this->nonce], 'rep_meta_save'));
+      wp_verify_nonce($_POST[$this->nonce], 'jmeta_save'));
 
   }
 
@@ -322,6 +322,10 @@ class JMetaBox extends \JMetaBox\Renderer {
     add_action('save_post', array(&$this, 'save'), 1, 2);
     add_action('admin_enqueue_scripts', array(&$this, 'enqueueStyles'));
 
+  }
+
+  public function getPostTypes() {
+    return $this->postTypes;
   }
 
 }
