@@ -14,12 +14,6 @@ interface FieldInterface {
   function save();
 
   /**
-   * render
-   * MetaBox needs this when interating over fields and display them
-   **/
-  function render();
-
-  /**
    * enqueueScripts
    * Needs to be public so WordPress can call this when enqueing scripts
    **/

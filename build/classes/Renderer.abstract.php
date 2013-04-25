@@ -35,6 +35,8 @@ abstract class Renderer {
    **/
   public function __toString() {
 
+    $this->render();
+
     return $this->output;
 
   }

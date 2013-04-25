@@ -17,7 +17,7 @@ class Color extends Field {
       </div>',
       $this->id,
       $this->label,
-      $this->value,
+      !empty($this->value) ? $this->value : '#000000',
       $this->renderHelpText()
     );
 
@@ -28,11 +28,21 @@ class Color extends Field {
   public function enqueueScripts() {
 
     wp_register_script(
+      'farbtastic2',
+      ASSETS_URL . '/js/farbtastic.js',
+      array(
+        'jquery'
+      ),
+      '2.0',
+      true
+    );
+
+    wp_register_script(
       'jmetacolor',
       $this->directory . '/js/jmetacolor.init.min.js',
       array(
         'jquery',
-        'farbtastic'
+        'farbtastic2'
       ),
       '0.1',
       true

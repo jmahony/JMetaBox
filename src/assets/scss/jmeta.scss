@@ -1,5 +1,5 @@
 /* Namespace the styles so we don't effect anything else */
-.rep-meta-box {
+.jmetabox {
   @import "forms";
 
   /* Fix text boxes height */
@@ -30,11 +30,11 @@
     background-color: white;
   }
 
-  @import "jquery_ui";
-
 }
 
-.rep-field-container {
+@import "jquery_ui";
+
+.jmetabox-field-container {
   border-bottom: 1px solid black;
   padding-bottom: 10px;
   margin-bottom: 15px;
