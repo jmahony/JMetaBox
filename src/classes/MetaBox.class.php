@@ -281,9 +281,9 @@ class JMetaBox extends \JMetaBox\Renderer {
   private function userIsAuthorised($postId = null) {
 
     // Must be a better way
-    if (!isset($_POST['post_type'])) return false;
+    if (!Input::hasPost('post_type')) return false;
 
-    if (in_array($_POST['post_type'], $this->postTypes)) {
+    if (in_array(Input::post('post_type'), $this->getPostTypes())) {
       if (!current_user_can('edit_page', $postId)) {
         return false;
       }
@@ -305,8 +305,8 @@ class JMetaBox extends \JMetaBox\Renderer {
    **/
   private function verifyNonce() {
 
-    return (isset($_POST[$this->nonce] ) &&
-      wp_verify_nonce($_POST[$this->nonce], 'jmeta_save'));
+    return (Input::hasPost($this->nonce) &&
+      wp_verify_nonce(Input::post($this->nonce), 'jmeta_save'));
 
   }
 
