@@ -41,18 +41,4 @@ class Checkbox extends Field {
 
   }
 
-  /**
-   * save
-   * Need to override the default field save and pass in the checkboxes value
-   *
-   * @param int $postId
-   * @param WP_Post $post
-   * @return void
-   **/
-  public function save($postId = null, \WP_Post $post = null, $value = null) {
-
-    parent::save($postId, $post, Input::get($this->id, $this->args['value']));
-
-  }
-
 }
