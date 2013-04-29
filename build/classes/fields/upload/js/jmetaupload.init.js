@@ -1,19 +1,35 @@
 (function($, window, document, undefined) {
 
   $(document).ready(function() {
+    /* Store WordPress's original send to editor */
+    var OrigSendToEditor = window.send_to_editor,
 
-    var $field;
+    /* Used to determine whether to use our custom send_to_editor or use WordPress's default */
+    jmetaSendToEditor = false,
 
-    $(".jmeta-upload").click(function() {
+    /* Store the field to store the value */
+    $field;
+
+    /* Add Media click listener*/
+    $(".jmeta-upload").on('click', function() {
       $field = $(this).prev();
+      /* We need to use our custom send to editor function */
+      jmetaSendToEditor = true;
       tb_show("", "media-upload.php?post_id=" + get_post_id() + "&amp;type=file&amp;TB_iframe=true");
       return false;
     });
 
     window.send_to_editor = function(html) {
-      var imgurl = $("img",html).attr("src");
-      $field.val(imgurl);
-      tb_remove();
+      if (jmetaSendToEditor) {
+        var imgurl = $("img",html).attr("src");
+        $field.val(imgurl);
+        tb_remove();
+      } else {
+        /* Call original send to editor function */
+        OrigSendToEditor(html);
+      }
+      /* Reset send to editor */
+      jmetaSendToEditor = false;
     };
 
     function get_post_id() {
