@@ -11,8 +11,8 @@ abstract class Factory {
   /**
    * loader
    * Keep a reference to the field loader
-   *
-   * @var FieldLoader
+   * TODO: This should be made static, possibly move into extending classes
+   * @var Loader
    **/
   protected $loader;
 

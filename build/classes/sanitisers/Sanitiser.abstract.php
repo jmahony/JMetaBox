@@ -17,7 +17,7 @@ abstract class Sanitiser implements SanitiserInterface {
 
   public function addError($field = null, $message = null) {
 
-    $this->errors[$field] = $message;
+    self::$errors[$field] = $message;
 
   }
 
