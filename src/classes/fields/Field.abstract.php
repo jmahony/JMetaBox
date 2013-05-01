@@ -119,7 +119,11 @@ abstract class Field extends Renderer implements FieldInterface {
 
     if (in_array($post->post_type, $this->metaBox->getPostTypes())) {
 
-      update_post_meta($postId, $this->id, $this->sanitise(Input::post($this->id)));
+      $value = $this->sanitise(Input::post($this->id));
+
+      $value = $this->valueFilter($value);
+
+      update_post_meta($postId, $this->id, $value);
 
     }
 
@@ -198,7 +202,7 @@ abstract class Field extends Renderer implements FieldInterface {
    **/
   private function getDirectory() {
 
-    return LIBRARY_URL . '/classes/fields/' . $this->getFieldType();
+    return JMETA_BUILD_URL . '/classes/fields/' . $this->getFieldType();
 
   }
 
@@ -266,6 +270,18 @@ abstract class Field extends Renderer implements FieldInterface {
 
     return $v;
 
+  }
+
+  /**
+   * valueFilter
+   * Filter the value
+   * TODO: Allow the user to specify their own filter function
+   *
+   * @param mixed $v the value
+   * @return mixed
+   **/
+  protected function valueFilter($v) {
+    return $v;
   }
 
 }
