@@ -126,7 +126,8 @@ class JMetaBox extends \JMetaBox\Renderer {
 
     $this->postTypes = (array) $args['types'];
 
-    $this->desc = $args['desc'];
+    if (isset($args['types']))
+      $this->desc = $args['desc'];
 
     $this->fieldFactory = new \JMetaBox\FieldFactory();
 
