@@ -29,10 +29,22 @@
     position: absolute;
     background-color: white;
   }
+  @import "jquery_ui";
 
 }
 
-@import "jquery_ui";
+.ui-timepicker-div .ui-widget-header{ margin-bottom: 8px; }
+.ui-timepicker-div dl{ text-align: left; }
+.ui-timepicker-div dl dt{ height: 25px; }
+.ui-timepicker-div dl dd{ margin: -25px 0 10px 65px; }
+.ui-timepicker-div td { font-size: 90%; }
+
+.ui-timepicker-div {
+  .ui-slider {
+    top: -12px;
+    width: 146px;
+  }
+}
 
 .jmetabox-field-container {
   border-bottom: 1px solid black;

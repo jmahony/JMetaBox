@@ -186,7 +186,7 @@ class JMetaBox extends \JMetaBox\Renderer {
 
     $mbf = $this->fieldFactory->make($mbfa);
 
-    $mbf->register(&$this);
+    $mbf->register($this);
 
     $this->fields[$mbf->getId()] = $mbf;
 
