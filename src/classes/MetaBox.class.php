@@ -242,7 +242,7 @@ class JMetaBox extends \JMetaBox\Renderer {
 
     wp_enqueue_style(
       'jmetabox-style',
-      LIBRARY_URL . '/assets/css/jmeta.css'
+      JMETA_ASSETS_URL . '/css/jmeta.css'
     );
 
   }
