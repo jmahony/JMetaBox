@@ -1,20 +1,20 @@
 <?php namespace JMetaBox;
 
-if (!defined('THEME_URL')) {
+if (!defined('JMETA_BASE_URL')) {
 
-  define('THEME_URL', get_stylesheet_directory_uri());
-
-}
-
-if (!defined('LIBRARY_URL')) {
-
-  define('LIBRARY_URL', THEME_URL . '/JMetaBox/build');
+  define('JMETA_BASE_URL', get_stylesheet_directory_uri());
 
 }
 
-if (!defined('ASSETS_URL')) {
+if (!defined('JMETA_BUILD_URL')) {
 
-  define('ASSETS_URL', LIBRARY_URL . '/assets');
+  define('JMETA_BUILD_URL', JMETA_BASE_URL . '/JMetaBox/build');
+
+}
+
+if (!defined('JMETA_ASSETS_URL')) {
+
+  define('JMETA_ASSETS_URL', JMETA_BUILD_URL . '/assets');
 
 }
 
