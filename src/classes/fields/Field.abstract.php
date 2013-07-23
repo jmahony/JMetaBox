@@ -123,6 +123,14 @@ abstract class Field extends Renderer implements FieldInterface {
 
       $value = $this->valueFilter($value);
 
+      if (isset($this->args['callback']) && is_callable($this->args['callback'])) {
+        $value = $this->args['callback']($value);
+      }
+
+      if (empty($value)) {
+        $value = $this->args['default'];
+      }
+
       update_post_meta($postId, $this->id, $value);
 
     }
