@@ -29,7 +29,7 @@ class Color extends Field {
 
     wp_register_script(
       'farbtastic2',
-      ASSETS_URL . '/js/farbtastic.js',
+      JMETA_ASSETS_URL . '/js/farbtastic.js',
       array(
         'jquery'
       ),
