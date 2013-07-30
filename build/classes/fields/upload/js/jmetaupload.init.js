@@ -39,7 +39,12 @@
         var t = arr[i].split('=');
         params[t[0]] = t[1];
       }
-      return params.post;
+
+      if (params.post === undefined) {
+        return $('#post_ID').val();
+      } else {
+        return params.post;
+      }
     }
 
   });
