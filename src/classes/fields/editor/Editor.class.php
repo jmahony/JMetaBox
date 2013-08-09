@@ -14,8 +14,6 @@ class Editor extends Field {
       $cg->render();
     }
 
-
-
     $this->output .= sprintf(
       '<div class="control-group" id="%1$s-container">
         <label class="control-label" for="%1$s">%2$s</label>
@@ -35,11 +33,13 @@ class Editor extends Field {
   }
 
   private function getEditor() {
+
     ob_start();
     \wp_editor($this->value, $this->id);
     $buffer = ob_get_contents();
     ob_end_clean();
     return $buffer;
+
   }
 
 }
