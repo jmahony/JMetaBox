@@ -61,7 +61,7 @@ abstract class Field extends Renderer implements FieldInterface {
    *
    * @var MetaBox
    **/
-  private $metaBox;
+  protected $metaBox;
 
   /**
    * sanitiserType
