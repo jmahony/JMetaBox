@@ -16,7 +16,7 @@ class Textarea extends Field {
       </div>',
       $this->id,
       $this->label,
-      $this->value,
+      htmlspecialchars($this->value),
       $this->renderHelpText()
     );
 
